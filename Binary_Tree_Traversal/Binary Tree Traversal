@@ -1,1 +1,34 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+# Pre-order traversal
+def pre_order(node):
+    if not node:
+        return []
+    pre_ord = []
+    pre_ord.append(node.data)
+    pre_ord += pre_order(node.left)+pre_order(node.right)
+    return pre_ord
+
+# In-order traversal
+def in_order(node):
+    if not node:
+        return []
+    in_ord = []
+    in_ord+=in_order(node.left)
+    in_ord.append(node.data)
+    in_ord+=in_order(node.right)
+    return in_ord
+
+# Post-order traversal
+def post_order(node):
+    if not node:
+        return []
+    post_ord = []
+    post_ord+=post_order(node.left)+post_order(node.right)
+    post_ord.append(node.data)
+    return post_ord
 
