@@ -1,1 +1,21 @@
+class Node:
+    def __init__(self, L, R, n):
+        self.left = L
+        self.right = R
+        self.value = n
 
+def tree_by_levels(node):
+    if not node:
+        return []
+    tree = []
+    stack = [node]
+    index = 0
+    while index<len(stack):
+        curr = stack[index]
+        tree.append(curr.value)
+        if curr.left:
+            stack.append(curr.left)
+        if curr.right:
+            stack.append(curr.right)
+        index += 1
+    return tree
