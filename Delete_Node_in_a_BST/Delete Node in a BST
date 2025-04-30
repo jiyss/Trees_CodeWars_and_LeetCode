@@ -16,6 +16,8 @@ class Solution(object):
         if key == root.val:
             if root.left and root.right:
                 next_one = root.left
+                while next_one.right:
+                    next_one = next_one.right
                 root.val = next_one.val
                 root.left = self.deleteNode(root.left, next_one.val)
             elif not root.left:
